@@ -1,3 +1,6 @@
+ALTER TABLE Customers
+ADD IsVIP VARCHAR2(5);
+
 BEGIN
 
 FOR cust IN
