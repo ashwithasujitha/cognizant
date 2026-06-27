@@ -4,7 +4,7 @@ FOR loan_rec IN
 (
     SELECT c.Name,
            l.LoanID,
-           l.DueDate
+           l.ENDDate
 
       FROM Customers c
       
@@ -12,14 +12,14 @@ FOR loan_rec IN
       
       ON c.CustomerID=l.CustomerID
 
-      WHERE l.DueDate
+      WHERE l.ENDDate
       BETWEEN SYSDATE
       AND SYSDATE+30
       )
       LOOP
       
       DBMS_OUTPUT.PUT_LINE(
-      'Reminder : '||loan_rec.Name||' Loan Due on '||loan_rec.DueDate);
+      'Reminder : '||loan_rec.Name||' Loan Due on '||loan_rec.ENDDate);
 
 END LOOP;
 END;
